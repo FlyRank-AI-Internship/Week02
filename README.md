@@ -67,18 +67,3 @@ Because this API uses in-memory storage, all data is reset whenever the server r
 
 ---
 
-*Built as part of W2 · A1 assignment.*
-
-```
-
-**Ab ye final steps follow karein:**
-1. Save this content in a file named `README.md`.
-2. Terminal mein ye commands chalayein:
-   ```bash
-   git add README.md
-   git commit -m "Stage 6: Add README and finalize documentation"
-   git push -u origin main
-
-```
-
-Aapka assignment ab mukammal ho gaya hai! Mubarak ho!
