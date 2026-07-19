@@ -20,4 +20,13 @@ app.get('/tasks/:id', (req, res) => {
 app.get('/', (req, res) => res.json({ name: "Task API", version: "1.0", endpoints: ["/tasks"] }));
 app.get('/health', (req, res) => res.json({ status: "ok" }));
 
+// Stage 3
+app.post('/tasks', (req, res) => {
+    const { title } = req.body;
+    if (!title) return res.status(400).json({ error: "Title is missing" });
+    const newTask = { id: tasks.length + 1, title, done: false };
+    tasks.push(newTask);
+    res.status(201).json(newTask);
+});
+
 app.listen(3000, () => console.log('Server running on port 3000'));
