@@ -28,8 +28,14 @@ app.get('/tasks/:id', (req, res) => {
 // Stage 3
 app.post('/tasks', (req, res) => {
     const { title } = req.body;
-    if (!title) return res.status(400).json({ error: "Title is missing" });
-    const newTask = { id: tasks.length + 1, title, done: false };
+    if (!title || title.trim() === "") {
+        return res.status(400).json({ error: "Title is missing or empty" });
+    }
+    
+    // Nayi ID ke liye current max ID dhundein
+    const newId = tasks.length > 0 ? Math.max(...tasks.map(t => t.id)) + 1 : 1;
+    
+    const newTask = { id: newId, title, done: false };
     tasks.push(newTask);
     res.status(201).json(newTask);
 });
