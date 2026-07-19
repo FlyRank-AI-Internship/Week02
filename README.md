@@ -1,5 +1,3 @@
-Aapke project ke liye ye rahi final **README.md**. Isse copy karke apne folder mein `README.md` ke naam se save kar dein aur phir `git commit` kar ke push kar dein.
-
 ```markdown
 # Task API
 
