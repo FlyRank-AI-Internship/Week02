@@ -1,6 +1,4 @@
-Yeh raha aapke `todo-api` project ke liye ek behtareen **README.md**. Aap ise copy karke apne project folder mein `README.md` file bana kar paste kar dein.
-
----
+Aapke project ke liye ye rahi final **README.md**. Isse copy karke apne folder mein `README.md` ke naam se save kar dein aur phir `git commit` kar ke push kar dein.
 
 ```markdown
 # Task API
@@ -14,15 +12,11 @@ A simple CRUD API for managing a to-do list, built with Node.js and Express. Thi
 - **Delete**: Remove tasks from the list.
 - **Documentation**: Interactive API testing via Swagger UI.
 
-## Requirements
-- Node.js (v14+)
-- npm
-
 ## Installation & Running
 1. Clone the repository:
    ```bash
-   git clone <your-repo-url>
-   cd todo-api
+   git clone [https://github.com/FlyRank-AI-Internship/Week02.git](https://github.com/FlyRank-AI-Internship/Week02.git)
+   cd Week02
 
 ```
 
@@ -71,7 +65,7 @@ Once the server is running, visit `http://localhost:3000/docs` in your browser t
 
 ## Mortality Experiment
 
-*Note: Because this API uses in-memory storage, all data is reset whenever the server restarts. This demonstrates the necessity of persistent databases for real-world applications.*
+Because this API uses in-memory storage, all data is reset whenever the server restarts. This demonstrates that in-memory storage is not persistent and is only suitable for temporary data or learning purposes; real-world applications require a persistent database.
 
 ---
 
@@ -79,6 +73,14 @@ Once the server is running, visit `http://localhost:3000/docs` in your browser t
 
 ```
 
----
+**Ab ye final steps follow karein:**
+1. Save this content in a file named `README.md`.
+2. Terminal mein ye commands chalayein:
+   ```bash
+   git add README.md
+   git commit -m "Stage 6: Add README and finalize documentation"
+   git push -u origin main
 
 ```
+
+Aapka assignment ab mukammal ho gaya hai! Mubarak ho!
