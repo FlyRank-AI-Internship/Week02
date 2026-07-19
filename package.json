@@ -1,13 +1,21 @@
 {
   "name": "todo-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple CRUD Task API built with Node.js, Express, and Swagger UI.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "echo \"No tests specified\""
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nodejs",
+    "express",
+    "crud",
+    "api",
+    "swagger"
+  ],
+  "author": "Your Name",
   "license": "ISC",
   "dependencies": {
     "express": "^5.2.1",
