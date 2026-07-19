@@ -24,7 +24,7 @@ let tasks = [
 ];
 
 app.get("/", (req, res) => {
-  res.json({
+  res.status(200).json({
     name: "Task API",
     version: "1.0",
     endpoints: ["/tasks"],
@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/health", (req, res) => {
-  res.json({
+  res.status(200).json({
     status: "ok",
   });
 });
@@ -82,6 +82,67 @@ app.post("/tasks", (req, res) => {
   tasks.push(newTask);
 
   res.status(201).json(newTask);
+});
+
+app.put("/tasks/:id", (req, res) => {
+  const taskId = Number(req.params.id);
+
+  const task = tasks.find((task) => task.id === taskId);
+
+  if (!task) {
+    return res.status(404).json({
+      error: `Task ${taskId} not found`,
+    });
+  }
+
+  const { title, done } = req.body;
+
+  if (title === undefined && done === undefined) {
+    return res.status(400).json({
+      error: "Request body must contain title or done",
+    });
+  }
+
+  if (
+    title !== undefined &&
+    (typeof title !== "string" || title.trim() === "")
+  ) {
+    return res.status(400).json({
+      error: "Title must be a non-empty string",
+    });
+  }
+
+  if (done !== undefined && typeof done !== "boolean") {
+    return res.status(400).json({
+      error: "Done must be true or false",
+    });
+  }
+
+  if (title !== undefined) {
+    task.title = title.trim();
+  }
+
+  if (done !== undefined) {
+    task.done = done;
+  }
+
+  res.status(200).json(task);
+});
+
+app.delete("/tasks/:id", (req, res) => {
+  const taskId = Number(req.params.id);
+
+  const taskIndex = tasks.findIndex((task) => task.id === taskId);
+
+  if (taskIndex === -1) {
+    return res.status(404).json({
+      error: `Task ${taskId} not found`,
+    });
+  }
+
+  tasks.splice(taskIndex, 1);
+
+  res.status(204).send();
 });
 
 app.listen(PORT, () => {
